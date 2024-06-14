@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Web Component Project</title>
+    <script src="../components/form-component.js"></script>
+    <style>
+        form {
+            padding: 20px;
+            background-color: blue;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        label {
+            font-weight: bold;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="#" onclick="navigate('home')">Home</a></li>
+            <li><a href="#" onclick="navigate('about')">About</a></li>
+            <li><a href="index.html">Index Page</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <!-- Content will be inserted here -->
+    </div>
+
+    <script>
+        function navigate(pageId) {
+        
+            const pages = {
+                home: `
+                    <h1>Welcome to the Home Page</h1>
+                    <form-component src="forms/form1.json" title="Form 1 without styles"></form-component>
+                    <form-component src="forms/form2.json" title="Form 2 with custom styles as param"
+                    styles="form {
+                        padding: 20px;
+                        background-color: #33FFFC;
+                        border: 1px solid #ccc;
+                        border-radius: 5px;
+                        margin: 10px 0;
+                      }
+                      h2 {
+                        margin-bottom: 20px;
+                        color: #333;
+                      }"></form-component>
+                    <form-component src="forms/form3.json" title="Form 3 with default web component styling"></form-component>
+                `,
+                about: `
+                    <h1>About Us</h1>
+                    <p>This is the about page.</p>
+                `
+            };
+
+            const content = document.querySelector('.content');
+            content.innerHTML = pages[pageId];
+        }
+
+        // Call navigate with 'home' to display the home page by default
+        navigate('home');
+    </script>
+</body>
+
+</html>
