@@ -14,7 +14,19 @@ Web Components are a set of web platform APIs that allow you to create reusable 
 
 5. **Standards-based**: Web Components are based on web standards, such as Custom Elements, Shadow DOM, and HTML Templates. This ensures that your components are future-proof and compatible with evolving web technologies.
 
+# Comparision with other tools
+
+## React
+React uses a virtual DOM to improve performance. When the state of an object changes, React first updates the virtual DOM, which is much faster than updating the real DOM. Then it compares the virtual DOM with a virtual copy of the former DOM (a process known as "diffing") and updates the real DOM only where there were changes. This process is called reconciliation.
+
+## Web Compnents
+Web Components (which include Custom Elements and Shadow DOM) interact directly with the real DOM. They don't use a virtual DOM or a diffing algorithm. Instead, they encapsulate functionality into custom HTML elements that can have their own encapsulated HTML, CSS, and JavaScript. This can make them more straightforward to use and understand, but potentially less efficient for large-scale updates. However, they are native to the browser and don't require any additional libraries to use, making them more lightweight.
+
+
+
+
 ## Usage
 The project has 2 pages, index.html only show and hide the content base on the link selected, and page2 delete the contect and recreate it base on the link selected.
+
 
 
